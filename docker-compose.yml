@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  biblioteca-db:
+    image: mysql:5.7
+    container_name: biblioteca-db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: biblioteca
+      ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_ROOT_PASSWORD: password
+    restart: always
+
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    ports:
+      - 9080:8080
+    restart: always
